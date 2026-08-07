@@ -1,0 +1,15 @@
+POST http://localhost:8080/chat/lib HTTP/1.1
+Content-Type: application/json
+
+{
+    "prompt": "teste"
+}
+
+###
+
+POST http://localhost:8080/chat/rest HTTP/1.1
+Content-Type: application/json
+
+{
+    "prompt": "teste"
+}
