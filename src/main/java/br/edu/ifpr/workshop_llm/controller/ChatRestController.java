@@ -11,8 +11,10 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -25,6 +27,7 @@ import br.edu.ifpr.workshop_llm.dto.APIRequestDTO;
 import br.edu.ifpr.workshop_llm.dto.APIResponseDTO;
 
 @RestController
+@RequestMapping("/chat/rest")
 public class ChatRestController {
     @Value("${spring.ai.google.genai.api-key}")
     public String apiKey;
@@ -37,8 +40,8 @@ public class ChatRestController {
         this.httpClient = HttpClient.newHttpClient();
     }
 
-    @PostMapping("/chat/rest")
-    public ResponseEntity<ChatResponseDTO> rest(@RequestBody ChatRequestDTO body) {
+    @PostMapping("")
+    public ResponseEntity<ChatResponseDTO> prompt(@RequestBody ChatRequestDTO body) {
         try {
             ObjectMapper mapper = new ObjectMapper();
 
@@ -81,5 +84,10 @@ public class ChatRestController {
         }
 
         return null;
+    }
+
+    @GetMapping("/history")
+    public ResponseEntity<List<Message>> getHistory() {
+        return ResponseEntity.ok(history);
     }
 }

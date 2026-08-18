@@ -1,3 +1,14 @@
+POST https://generativelanguage.googleapis.com/v1beta/interactions HTTP/1.1
+Content-Type: application/json
+x-goog-api-key: ${GOOGLE_GENAI_API_KEY}
+
+{
+    "model": "gemini-3.1-flash-lite",
+    "input": "Me conte uma piada"
+}
+
+###
+
 POST http://localhost:8080/chat/lib HTTP/1.1
 Content-Type: application/json
 
@@ -7,9 +18,17 @@ Content-Type: application/json
 
 ###
 
+GET http://localhost:8080/chat/lib/history HTTP/1.1
+
+###
+
 POST http://localhost:8080/chat/rest HTTP/1.1
 Content-Type: application/json
 
 {
     "prompt": "Me conte uma piada"
 }
+
+###
+
+GET http://localhost:8080/chat/rest/history HTTP/1.1
