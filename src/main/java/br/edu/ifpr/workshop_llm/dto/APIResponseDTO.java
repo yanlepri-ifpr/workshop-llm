@@ -22,7 +22,13 @@ public record APIResponseDTO(
             int totalOutputTokens,
             int totalToolUseTokens,
             int totalThoughtTokens,
-            int rawPromptToken
+            int rawPromptToken,
+            List<ModelInvocationTokenCounts> modelInvocationTokenCounts
+    ) {}
+
+    public record ModelInvocationTokenCounts(
+            List<InputTokensByModality> promptTokensDetails,
+            List<InputTokensByModality> candidatesTokensDetails
     ) {}
 
     public record InputTokensByModality(

@@ -15,6 +15,6 @@ import br.edu.ifpr.workshop_llm.dto.ChatResponseDTO;
 public class ChatLibController {
     public ChatLibController() {}
 
-    @PostMapping("")
-    public ResponseEntity<ChatResponseDTO> prompt(@RequestBody ChatRequestDTO body) {}
+    // @PostMapping("")
+    // public ResponseEntity<ChatResponseDTO> prompt(@RequestBody ChatRequestDTO body) {}
 }
